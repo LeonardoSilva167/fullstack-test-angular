@@ -1,0 +1,53 @@
+<!--
+  // TODO: criar o layout como no diagrama
+  // TODO: adicionar o link de navegação à sidebar
+  // TODO: exibir a resposta da data-hora consultada na api
+  // TODO: adicionar um input e um botão à página
+  // TODO: criar um método POST no api.service que envie o texto do input e exiba a resposta na página
+-->
+
+<div class="container">
+
+  <div class="content-header">
+    <h1 class="title-page">Título da página</h1>
+  </div>
+
+  <div class="sidebar">
+    <a routerLink="/start" class="menu-link">Start</a>
+  </div>
+
+  <div class="content-body">
+    <div class="content-title">
+      <h3>{{ apiGetDataHora.mensagem }}</h3>
+      <label for="">{{ apiGetDataHora.data }}</label>
+    </div>
+    <br>
+    <form #formMensagem="ngForm" >
+      <div class="row">
+        <div class="mb-3 col-">
+          <input type="text"
+          name="inputTexto"
+          [(ngModel)]="elementosForm.inputTexto"
+          required
+          #inputTexto="ngModel"
+          placeholder="Digite uma mensagem!"
+          >
+
+        </div>
+      </div>
+      <div class="row">
+        <div class="mb-3">
+          <button (click)="sendMensagem(formMensagem)" >Enviar</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="mb-3">
+          {{ apiGetMensagemForm.mensagem }}
+        </div>
+      </div>
+    </form>
+  </div>
+
+</div>
+
+{{ apiGetDataHora }}
